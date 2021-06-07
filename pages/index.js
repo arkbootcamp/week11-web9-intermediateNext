@@ -56,9 +56,14 @@ export async function getServerSideProps(context) {
   // console.log(data);
 
   const res = await axiosApiIntances
-    .get("users")
+    // tambahkan headers jika menggunakan ssr untuk get data
+    .get("users", {
+      headers: {
+        Authorization: `Bearer ${data.token || ""}`,
+      },
+    })
     .then((res) => {
-      // console.log(res.data);
+      console.log(res.config); // cek menggunakan res.config di terminal. nanti akan mucul properti headers
       return res.data;
     })
     .catch((err) => {
