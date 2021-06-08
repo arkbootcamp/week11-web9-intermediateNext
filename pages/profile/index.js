@@ -23,8 +23,11 @@ export default function Profile() {
 
   const changeText = (event) => {
     if (event.target.value) {
-      const nextSibling = document.querySelector(
-        `input[name='${parseInt(event.target.name, 10) + 1}']`
+      // const nextSibling = document.querySelector(
+      //   `input[name='${parseInt(event.target.name, 10) + 1}']`
+      // );
+      const nextSibling = document.getElementById(
+        `pin-${parseInt(event.target.name, 10) + 1}`
       );
 
       if (nextSibling !== null) {
@@ -45,7 +48,9 @@ export default function Profile() {
     <Layout title="Profile">
       <Navbar />
       <h1>Profile Page !</h1>
-      <div className="container">
+      <hr />
+      <h3>Handle Pin Focus</h3>
+      <div className="container mt-3">
         <div style={inputContainer}>
           <div className="row">
             <div className="col-2">
@@ -54,6 +59,7 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="1"
+                id="pin-1"
               />
             </div>
             <div className="col-2">
@@ -62,6 +68,7 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="2"
+                id="pin-2"
               />
             </div>
             <div className="col-2">
@@ -70,6 +77,7 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="3"
+                id="pin-3"
               />
             </div>
             <div className="col-2">
@@ -78,6 +86,7 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="4"
+                id="pin-4"
               />
             </div>
             <div className="col-2">
@@ -86,6 +95,7 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="5"
+                id="pin-5"
               />
             </div>
             <div className="col-2">
@@ -94,13 +104,21 @@ export default function Profile() {
                 maxLength="1"
                 onChange={(event) => changeText(event)}
                 name="6"
+                id="pin-6"
               />
             </div>
           </div>
         </div>
       </div>
-      <button onClick={handleSubmit}>Submit</button>
-      <br />
+      <button
+        type="button"
+        className="btn btn-primary mt-3"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
+      <hr />
+      <h3>Handle Modal Bootstrap 5</h3>
       <button
         type="button"
         onClick={() => modal.show()}

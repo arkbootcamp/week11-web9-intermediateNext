@@ -14,6 +14,7 @@ export default function Navbar() {
   return (
     <>
       <Link href="/">Home</Link> | <Link href="/profile">Profile</Link> |{" "}
+      <Link href="/profile/modal">Modal</Link> |{" "}
       <button onClick={handleLogout}>Logout</button>
     </>
   );
