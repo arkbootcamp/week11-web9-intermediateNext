@@ -63,7 +63,7 @@ export async function getServerSideProps(context) {
       },
     })
     .then((res) => {
-      console.log(res.config); // cek menggunakan res.config di terminal. nanti akan mucul properti headers
+      // console.log(res.config); // cek menggunakan res.config di terminal. nanti akan mucul properti headers
       return res.data;
     })
     .catch((err) => {
