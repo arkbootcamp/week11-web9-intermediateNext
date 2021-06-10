@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import { Button, Container } from "react-bootstrap";
+import Layout from "components/Layout";
+import Navbar from "components/module/Navbar";
 import {
   increaseCounter,
   decreaseCounter,
@@ -17,7 +19,8 @@ export async function getStaticProps() {
 
 function Counter(props) {
   return (
-    <>
+    <Layout title="Counter App">
+      <Navbar />
       <Container className="text-center">
         <h1>Counter</h1>
         <hr />
@@ -36,7 +39,7 @@ function Counter(props) {
           +
         </Button>
       </Container>
-    </>
+    </Layout>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Modal } from "bootstrap";
+// import { Modal } from "bootstrap";
 import Layout from "../../components/Layout";
 import Navbar from "../../components/module/Navbar";
 
@@ -14,12 +14,12 @@ const inputContainer = {
 
 export default function Profile() {
   const [pin, setPin] = useState({});
-  const [modal, setModal] = useState(null);
-  const exampleModal = useRef();
+  // const [modal, setModal] = useState(null);
+  // const exampleModal = useRef();
 
-  useEffect(() => {
-    setModal(new Modal(exampleModal.current));
-  }, []);
+  // useEffect(() => {
+  //   setModal(new Modal(exampleModal.current));
+  // }, []);
 
   const changeText = (event) => {
     if (event.target.value) {
@@ -41,7 +41,7 @@ export default function Profile() {
   const handleSubmit = () => {
     const allPin =
       pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin6;
-    // console.log(allPin);
+    console.log(allPin);
   };
 
   return (
@@ -117,7 +117,7 @@ export default function Profile() {
       >
         Submit
       </button>
-      <hr />
+      {/* <hr />
       <h3>Handle Modal Bootstrap 5</h3>
       <button
         type="button"
@@ -125,10 +125,10 @@ export default function Profile() {
         className="btn btn-primary"
       >
         Launch demo modal
-      </button>
+      </button> */}
 
       {/* Modal */}
-      <div
+      {/* <div
         className="modal fade"
         ref={exampleModal}
         tabIndex="-1"
@@ -163,7 +163,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 }

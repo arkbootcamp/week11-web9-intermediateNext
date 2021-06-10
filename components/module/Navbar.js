@@ -14,7 +14,8 @@ export default function Navbar() {
   return (
     <>
       <Link href="/">Home</Link> | <Link href="/profile">Profile</Link> |{" "}
-      <Link href="/profile/modal">Modal</Link> |{" "}
+      <Link href="/profile/modal">Modal</Link> | <Link href="/ssg">SSG</Link> |{" "}
+      <Link href="/counter">Counter</Link> |{" "}
       <button onClick={handleLogout}>Logout</button>
     </>
   );
