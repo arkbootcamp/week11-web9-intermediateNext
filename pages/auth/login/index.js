@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Cookie from "js-cookie";
-import styles from "../../../styles/Login.module.css";
-import Layout from "../../../components/Layout";
-import { unauthPage } from "../../../middleware/authorizationPage";
+import styles from "styles/Login.module.css";
+import Layout from "components/Layout";
+import { unauthPage } from "middleware/authorizationPage";
 
 export async function getServerSideProps(context) {
   await unauthPage(context);

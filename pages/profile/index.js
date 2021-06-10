@@ -41,7 +41,7 @@ export default function Profile() {
   const handleSubmit = () => {
     const allPin =
       pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin6;
-    console.log(allPin);
+    // console.log(allPin);
   };
 
   return (
