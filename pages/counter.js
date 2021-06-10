@@ -1,40 +1,38 @@
-import { useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { Button, Container } from "react-bootstrap";
 import {
   increaseCounter,
   decreaseCounter,
   resetCounter,
 } from "../redux/actions/counter";
+import { initializeStore } from "redux/store";
 
-export function getServerSideProps(context) {
-  const count = useSelector((state) => state.counter.count);
-  console.log(count);
-  return {
-    props: {},
-  };
+export async function getStaticProps() {
+  const reduxStore = initializeStore();
+  const { dispatch } = reduxStore;
+  dispatch(increaseCounter());
+
+  return { props: { initialReduxState: reduxStore.getState() } };
 }
 
-function Counter() {
-  const count = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
-
+function Counter(props) {
   return (
     <>
       <Container className="text-center">
         <h1>Counter</h1>
         <hr />
-        <h3>{count}</h3>
-        <Button variant="primary" onClick={() => dispatch(decreaseCounter())}>
+        <h3>{props.counter.count}</h3>
+        <Button variant="primary" onClick={props.decreaseCounter}>
           -
         </Button>
         <Button
           variant="secondary"
           className="mx-2"
-          onClick={() => dispatch(resetCounter())}
+          onClick={props.resetCounter}
         >
           RESET
         </Button>
-        <Button variant="primary" onClick={() => dispatch(increaseCounter())}>
+        <Button variant="primary" onClick={props.increaseCounter}>
           +
         </Button>
       </Container>
@@ -42,4 +40,11 @@ function Counter() {
   );
 }
 
-export default Counter;
+const mapStateToProps = (state) => ({
+  counter: state.counter,
+});
+
+const mapDispatchToProps = { increaseCounter, decreaseCounter, resetCounter };
+// (null, mapDispatchToProps)
+// (mapStateToProps)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
