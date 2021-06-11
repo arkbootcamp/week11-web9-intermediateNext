@@ -1,9 +1,11 @@
-import { useMemo } from "react";
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import promiseMiddleware from "redux-promise-middleware";
-import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducer";
+//==================================
+import { useMemo } from "react";
+import { composeWithDevTools } from "redux-devtools-extension";
+//==================================
 
 let store;
 

@@ -18,6 +18,7 @@ export async function getStaticProps() {
 }
 
 function Counter(props) {
+  // console.log(props);
   return (
     <Layout title="Counter App">
       <Navbar />
